@@ -8,13 +8,13 @@ const BASE_URL = "https://api.weatherapi.com/v1";
 export { getCurrentWeather, getForecast };
 
 const getCurrentWeather = (queryLocation) => {
-    const url = `${BASE_URL}/current.json?key=${KEY}&q=${queryLocation}`;
+  const url = `${BASE_URL}/current.json?key=${KEY}&q=${queryLocation}`;
 
-    return axios.get(url).then((response) => response.data);
+  return axios.get(url).then((response) => response.data);
 };
 
 const getForecast = (queryLocation, queryDays) => {
-    const url = `${BASE_URL}/forecast.json?key=${KEY}&q=${queryLocation}&days=${queryDays}`;
+  const url = `${BASE_URL}/forecast.json?key=${KEY}&q=${queryLocation}&days=${queryDays}`;
 
-    return axios.get(url).then((response) => response.data);
+  return axios.get(url).then((response) => response.data);
 };
