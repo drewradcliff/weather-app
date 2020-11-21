@@ -1,3 +1,5 @@
+import React from "react"
+
 import "./tailwind.output.css";
 import { Weather } from "./components"
 
