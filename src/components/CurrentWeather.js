@@ -7,7 +7,7 @@ export default function CurrentWeather({ weather }) {
         <div>{weather.location.localtime}</div>
       </div>
       <div className="flex flex-col justify-end mx-4">
-        <img src={weather.current.condition.icon}></img>
+        <img src={weather.current.condition.icon} alt="icon"></img>
         <div className="text-center">{weather.current.condition.text}</div>
       </div>
     </div>
