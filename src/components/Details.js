@@ -1,20 +1,17 @@
-import { FiSearch } from "react-icons/fi";
+import { SearchDetails } from ".";
 
 export default function Details({ weather, forecast }) {
+  const convertDate = (date) => {
+    let newDate = new Date(date);
+    return newDate.toLocaleDateString("en-US", {
+      day: "numeric",
+      month: "numeric",
+    });
+  };
+
   return (
     <div className="w-96 bg-gray-700 text-white p-12 z-10">
-      <div className="flex justify-between">
-        <input
-          className="bg-gray-700 border-b border-solid border-gray w-64"
-          placeholder="Location"
-        ></input>
-        <FiSearch />
-      </div>
-      <ul className="border-b border-solid border-gray py-6">
-        <li className="py-3">New York</li>
-        <li className="py-3">San Francisco</li>
-        <li className="py-3">Chicago</li>
-      </ul>
+      <SearchDetails />
       <div className="py-9">
         <h1 className="font-bold">Weather Details</h1>
         <ul className="border-b border-solid border-gray py-6">
@@ -35,10 +32,10 @@ export default function Details({ weather, forecast }) {
       <div className="">
         <h1 className="font-bold">Next Days</h1>
         <ul className="py-6">
-          {forecast.forecast.forecastday.map((item) => (
-            <li className="flex justify-between">
-              <div className="py-5">{item.date}</div>
-              <img src={item.day.condition.icon}></img>
+          {forecast.forecast.forecastday.map((item, index) => (
+            <li className="flex justify-between" key={index}>
+              <div className="py-5">{convertDate(item.date)}</div>
+              <img src={item.day.condition.icon} alt="condition-icon"></img>
             </li>
           ))}
         </ul>
